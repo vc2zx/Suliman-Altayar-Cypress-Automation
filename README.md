@@ -25,9 +25,11 @@ npm install
 npx cypress open
 ```
 
+In the Cypress UI, run an individual spec or use the `integration.cy.js` file for a website to run its grouped tests.
+
 ## Automation Coverage
 
-The suite contains 14 Cypress tests across five spec files.
+The suite contains 14 unique Cypress tests across five primary spec files. Two integration runner specs group the existing tests by website.
 
 - `the-garage/navigation.cy.js` — homepage, Contact Us navigation, and Arabic/English switching (3 tests).
 - `the-garage/programs.cy.js` — program discovery, accelerator details, and registration destination without form submission (3 tests).
@@ -43,9 +45,11 @@ Assessment/
 │   └── e2e/
 │       ├── satr/
 │       │   ├── courses.cy.js
+│       │   ├── integration.cy.js
 │       │   ├── navigation.cy.js
 │       │   └── search-auth.cy.js
 │       └── the-garage/
+│           ├── integration.cy.js
 │           ├── navigation.cy.js
 │           └── programs.cy.js
 ├── cypress.config.js
@@ -58,25 +62,20 @@ Assessment/
 
 The assessment targets the Production environment.
 
-The automated scenarios avoid destructive actions, unnecessary data creation, credential exposure, and form submissions that could affect production data.
+The automated scenarios avoid destructive actions, unnecessary data creation, credential exposure, and form submissions that could affect Production data.
 
-## Test Verification
+## Test Development and Verification
 
-All 14 Cypress scenarios were **manually** verified against the current Production UI using normal Chrome.
+The initial Cypress automation suite was designed and implemented from manual exploration of both Production websites because Cypress execution from an external network was blocked by HTTP 403 responses.
 
-The selectors, navigation flows, URLs, visible content, and expected assertions matched the current websites during manual verification.
+After connecting to the Tuwaiq Academy network, the full suite could be executed against Production. The tests were then adjusted where necessary based on the actual execution behavior.
 
-## Known Automation Limitation
+**Final result: 14 passed, 0 failed.**
 
-During automated Cypress execution both selected production websites returned HTTP 403 responses before their application pages could load.
+## Network Execution Note
 
-Direct command-line requests also returned HTTP 403 responses and identified Cloudflare as the responding server.
+From an external network, both Production websites returned HTTP 403 responses before their application pages loaded.
 
-The websites remained accessible through normal interactive Chrome browsing.
+When connected to the Tuwaiq Academy network, the same automation suite could access the sites and complete successfully.
 
-Because of this production security restriction full Cypress execution could not be completed.
-The Cypress scenarios were manually verified against the current Production UI instead.
-
-No attempt was made to bypass Cloudflare or other production security controls.
-
-The HTTP 403 response is treated as an automation environment limitation and not automatically as an application defect.
+No attempt was made to bypass Cloudflare or other Production security controls.
