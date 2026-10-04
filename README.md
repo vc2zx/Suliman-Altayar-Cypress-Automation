@@ -62,7 +62,7 @@ The automated scenarios avoid destructive actions, unnecessary data creation, cr
 
 ## Test Verification
 
-All 14 Cypress scenarios were manually verified against the current Production UI using normal Chrome.
+All 14 Cypress scenarios were **manually** verified against the current Production UI using normal Chrome.
 
 The selectors, navigation flows, URLs, visible content, and expected assertions matched the current websites during manual verification.
 
