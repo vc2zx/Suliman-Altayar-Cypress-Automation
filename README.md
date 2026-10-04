@@ -19,28 +19,10 @@ Cypress 16.1.1 is installed as a project dependency.
 npm install
 ```
 
-For a clean install using the included lockfile:
+## Run Cypress
 
 ```bash
-npm ci
-```
-
-## Run Cypress UI
-
-```bash
-npm run cy:open
-```
-
-## Run Headless
-
-```bash
-npm run cy:run
-```
-
-## Run with Chrome
-
-```bash
-npm run cy:run:chrome
+npx cypress open
 ```
 
 ## Automation Coverage
